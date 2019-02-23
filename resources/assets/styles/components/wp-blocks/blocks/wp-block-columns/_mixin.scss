@@ -1,0 +1,8 @@
+@import "default";
+@import "bootstrap";
+
+@mixin wp-block-columns($framework) {
+  @extend %wp-block-columns__#{$framework};
+
+  @include debug;
+}

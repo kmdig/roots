@@ -1,0 +1,8 @@
+@import "default";
+@import "bootstrap";
+
+@mixin wp-block-button($framework) {
+  @extend %wp-block-button__#{$framework};
+
+  @include debug((primary-color: wp-blocks-color(primary)));
+}

@@ -1,0 +1,8 @@
+@import "mixin";
+
+.wp-blocks .wp-block-columns,
+.wp-blocks .is-grid {
+  @include wp-block-columns(
+    map-get($wp-blocks-options, framework)
+  );
+}

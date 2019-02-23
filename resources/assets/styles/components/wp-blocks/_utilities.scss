@@ -1,0 +1,56 @@
+@function wp-blocks-spacer() {
+  @return map-get($wp-blocks-options, spacer);
+}
+
+/**
+ * @param media-size
+ * ("sm", "md", "lg", "xl")
+ **/
+@function wp-blocks-breakpoint($media-size) {
+  @return map-get(map-get($wp-blocks-options, breakpoint), $media-size);
+}
+
+@function wp-blocks-container($media-size) {
+  @return map-get(map-get($wp-blocks-options, container), $media-size);
+}
+
+@function wp-blocks-wide-align-width() {
+  @return map-get(map-get(map-get($wp-blocks-options, blocks), wide-align), width);
+}
+
+@function wp-blocks-wide-align-max-width() {
+  @return map-get(map-get(map-get($wp-blocks-options, blocks), wide-align), max-width);
+}
+
+@function wp-blocks-spacer() {
+  @return map-get($wp-blocks-options, spacer);
+}
+
+@function wp-blocks-font-size($size) {
+  @return map-get(map-get($wp-blocks-options, fontsize), $size);
+}
+
+@function wp-blocks-color($color) {
+  @return map-get(map-get($wp-blocks-options, colors), $color);
+}
+
+/**
+ * debugger
+ **/
+@mixin debug($component: null) {
+  @if (map_get(map_get($wp-blocks-options, debug), enabled) == 1) {
+    @if (map_get(map_get(map_get($wp-blocks-options, debug), settings), border) == 1) {
+      border: 1px dotted rgba(255, 0, 0, 0.6);
+    }
+  }
+
+  @if (map_get(map_get(map_get($wp-blocks-options, debug), console), enabled)) {
+    @if (map_get(map_get(map_get($wp-blocks-options, debug), console), display-config)) {
+      @debug $wp-blocks-options;
+    }
+
+    @if ($component) {
+      @debug $component;
+    }
+  }
+}
